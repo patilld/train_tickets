@@ -14,7 +14,6 @@ public class HelloController {
 
     @GetMapping("/world")
     public String getWorld() {
-
         return "World!";
     }
 }
