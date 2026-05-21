@@ -1,6 +1,8 @@
 pipeline {
     agent any;
-    buildDiscarder(logRotator(numToKeepStr:'3', dayToKeepStr:'5', artifactToKeepStr:'3', artfactDaysToKeepStr:'5'))
+    options {
+        buildDiscarder(logRotator(numToKeepStr:'3', dayToKeepStr:'5', artifactToKeepStr:'3', artfactDaysToKeepStr:'5'))
+    }
     stages {
         stage('Code Compilation') {
             steps {
