@@ -7,6 +7,14 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr:'3', daysToKeepStr:'5', artifactNumToKeepStr:'3', artifactDaysToKeepStr:'5'))
     }
     stages {
+        stage ('Tool version') {
+            steps {
+                echo 'Java and Maven version'
+                sh 'java --version'
+                sh 'mvn --version'
+                echo 'Java and Maven version completed successfully!!!'
+            }
+        }
         stage('Code Compilation') {
             steps {
                 echo 'Code Compilation stage'
