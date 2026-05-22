@@ -14,7 +14,7 @@ pipeline {
         stage ('Tool version') {
             steps {
                 echo 'Java and Maven version'
-                sh 'Entered message: ${msg}'
+                echo 'Entered message: ${msg}'
                 sh 'mvn --version'
                 echo 'Java and Maven version completed successfully!!!'
             }
