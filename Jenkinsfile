@@ -1,7 +1,10 @@
 pipeline {
     agent any;
+    parameters {
+        string(name: 'maven', defaultValue: '3.9.16', description: 'Maven Version to use', trim: true)
+    }
     tools {
-        maven 'maven-3.9.16'
+        maven 'maven'
     }
     options {
         buildDiscarder(logRotator(numToKeepStr:'3', daysToKeepStr:'5', artifactNumToKeepStr:'3', artifactDaysToKeepStr:'5'))
