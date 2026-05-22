@@ -1,19 +1,20 @@
 pipeline {
     agent any;
-    parameters {
-        string(name: 'maven', defaultValue: '3.9.16', description: 'Maven Version to use', trim: true)
-    }
+
     tools {
-        maven 'maven'
+        maven '3.9.16'
     }
     options {
         buildDiscarder(logRotator(numToKeepStr:'3', daysToKeepStr:'5', artifactNumToKeepStr:'3', artifactDaysToKeepStr:'5'))
+    }
+    parameters {
+            string(name: 'msg', defaultValue: 'test', description: 'example parameter', trim: true)
     }
     stages {
         stage ('Tool version') {
             steps {
                 echo 'Java and Maven version'
-                sh 'java --version'
+                sh 'Entered message: ${msg}'
                 sh 'mvn --version'
                 echo 'Java and Maven version completed successfully!!!'
             }
